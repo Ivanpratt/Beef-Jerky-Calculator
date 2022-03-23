@@ -6,19 +6,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Beef Jerky Calculator</title>
     <link href='https://fonts.googleapis.com/css?family=Dancing Script' rel='stylesheet'>
+    <link href="https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="index.css">
 </head>
 <body>
     <h1 id="title">
         The Beef Jerky Calculator
     </h1>
+
     <div class="whitepage">
-        <p id="welcome">Welcome to the Beef Jerky Calculator. Enter in your desired ingredients or whatever
-            ingredients you have on hand. The site will return to you how much of what ingredients to
-            use to make the perfect beef jerky. Choose a desired Jerky outcome to alter the recipe to
-            make the Jerky more spicy, smokey, sweet, or tough, chewy, or soft. The Calculator also
-            makes adjustments based on what tool you are making the Jerky with, such as a
-            Dehydrator, Smoker, or Oven. </p>
+        <p id="welcome">Welcome to the Beef Jerky Calculator. Enter in the desired characteristics of your Beef Jerky (Smoky, Spicy, Sweet, etc), then select the items you wish you create the Beef Jerky with. The Beef Jerky Calculator will then determine the amount of ingredients you need to work with in order to match your desired jerky characteristics. Afterwards, a full-paged instructional recipe will be displayed.</p>
         <h1 class="minititle">Objectives</h1>
         <div id="objectives">
             <div class="checkboxbox"><h2>Smokiness</h2>
@@ -30,7 +27,7 @@
                     <input name="smoky3" type="radio">
                     <label for="smoky3">Light</label><br>
                     <input name="smoky4" type="radio">
-                    <label for="smoky1">None</label>
+                    <label for="smoky4">None</label>
                 </form>
             </div>
 
@@ -43,20 +40,20 @@
                     <input name="smoky3" type="radio">
                     <label for="smoky3">White</label><br>
                     <input name="smoky4" type="radio">
-                    <label for="smoky1">None</label>
+                    <label for="smoky4">None</label>
                 </form>
             </div>
 
             <div class="checkboxbox"><h2>Sweetness</h2>
                 <form name="smokiness">
                     <input name="smoky1" type="radio">
-                    <label for="smoky1">Candy</label><br>
+                    <label for="smoky1">Candied</label><br>
                     <input name="smoky2" type="radio">
-                    <label for="smoky2">Heavy</label><br>
+                    <label for="smoky2">Moderate</label><br>
                     <input name="smoky3" type="radio">
-                    <label for="smoky3">Light</label><br>
+                    <label for="smoky3">Slight</label><br>
                     <input name="smoky4" type="radio">
-                    <label for="smoky1">None</label>
+                    <label for="smoky4">None</label>
                 </form>
             </div>
 
@@ -69,7 +66,7 @@
                     <input name="smoky3" type="radio">
                     <label for="smoky3">Light</label><br>
                     <input name="smoky4" type="radio">
-                    <label for="smoky1">None</label>
+                    <label for="smoky4">None</label>
                 </form>
             </div>
 
@@ -82,7 +79,7 @@
                     <input name="smoky3" type="radio">
                     <label for="smoky3">Standard</label><br>
                     <input name="smoky4" type="radio">
-                    <label for="smoky1">Tender</label>
+                    <label for="smoky4">Tender</label>
                 </form>
             </div>
 
@@ -95,20 +92,156 @@
                     <input name="smoky3" type="radio">
                     <label for="smoky3">2 weeks</label><br>
                     <input name="smoky4" type="radio">
-                    <label for="smoky1">Don't Care</label>
+                    <label for="smoky4">Don't Care</label>
                 </form>
             </div>
 
-        
+            <div class="checkboxbox"><h2>Appliance</h2>
+                <form name="smokiness">
+                    <input name="smoky1" type="radio">
+                    <label for="smoky1">Smoker</label><br>
+                    <input name="smoky2" type="radio">
+                    <label for="smoky1">Dehydrator</label><br>
+                    <input name="smoky2" type="radio">
+                    <label for="smoky1">Oven</label><br>
+                    <input name="smoky2" type="radio">
+                    <label for="smoky2">Sun Dry</label>
+                </form>
+            </div>
+        </div>
+
+        <h1 class="minititle">Ingredients</h1>
+        <div id="objectives">
+            <div class="checkboxbox2"><h2>Meat</h2>
+                <form name="smokiness">
+                    <input name="smoky1" type="checkbox">
+                    <label for="smoky1">Beef</label><br>
+                    <input name="smoky2" type="checkbox">
+                    <label for="smoky2">Deer or other Cervid</label><br>
+                    <input name="smoky3" type="checkbox">
+                    <label for="smoky3">Fish</label><br>
+                    <input name="smoky4" type="checkbox">
+                    <label for="smoky4">Turkey</label><br>
+                    <input name="smoky5" type="checkbox">
+                    <label for="smoky5">Pork</label><br>
+                    <input name="smoky6" type="checkbox">
+                    <label for="smoky5">Bacon</label><br>
+                    <input name="smoky6" type="checkbox">
+                    <label for="smoky6">Ham</label><br>
+                    <input name="smoky1" type="checkbox">
+                    <label for="smoky1">Ground meats</label><br>
+                    <br>
+                    <br>
+                </form>
+            </div>
+
+            <div class="checkboxbox2"><h2>Base Ingredients</h2>
+                <form name="smokiness">
+                    <input name="smoky1" type="checkbox">
+                    <label for="smoky1">Soy Sauce</label><br>
+                    <input name="smoky2" type="checkbox">
+                    <label for="smoky2">Teriyaki Sauce</label><br>
+                    <input name="smoky3" type="checkbox">
+                    <label for="smoky1">Tamari Sauce</label><br>
+                    <input name="smoky4" type="checkbox">
+                    <label for="smoky1">Coconut aminos</label><br>
+                    <input name="smoky4" type="checkbox">
+                    <label for="smoky3">Worcestershire sauce</label><br>
+                    <input name="smoky4" type="checkbox">
+                    <label for="smoky1">Liquid smoke</label><br>
+                    <input name="smoky4" type="checkbox">
+                    <label for="smoky1">Apple cider vinegar</label><br>
+                    <input name="smoky4" type="checkbox">
+                    <label for="smoky1">Lemon / Lime Juice</label><br>
+                    <input name="smoky4" type="checkbox">
+                    <label for="smoky1">Cola / Soft Drink</label><br>
+                    <input name="smoky4" type="checkbox">
+                    <label for="smoky1">Wine, Mirin / Whisky</label>
+                </form>
+            </div>
+
+            <div class="checkboxbox2"><h2>Post ingredients</h2>
+                <form name="smokiness">
+                    <input name="smoky1" type="checkbox">
+                    <label for="smoky1">Salt</label><br>
+                    <input name="smoky2" type="checkbox">
+                    <label for="smoky2">Ground Pepper</label><br>
+                    <input name="smoky3" type="checkbox">
+                    <label for="smoky3">Garlic Powder/Paste</label><br>
+                    <input name="smoky3" type="checkbox">
+                    <label for="smoky3">Onion Powder/Paste</label><br>
+                    <input name="smoky1" type="checkbox">
+                    <label for="smoky1">Paprika</label><br>
+                    <input name="smoky1" type="checkbox">
+                    <label for="smoky1">Barbaque Sauce</label><br>
+                    <input name="smoky1" type="checkbox">
+                    <label for="smoky1">MSG</label><br>
+                    <input name="smoky1" type="checkbox">
+                    <label for="smoky1">Meat Tenderizer</label><br>
+                    <br>
+                    <br>
+
+                </form>
+            </div>
+
+            
+
+            <div class="checkboxbox2"><h2>Spice</h2>
+                <form name="smokiness">
+                    <input name="smoky3" type="checkbox">
+                    <label for="smoky3">Tabasco Sauce</label><br>
+                    <input name="smoky3" type="checkbox">
+                    <label for="smoky3">Chili Powder/Paste</label><br>
+                    <input name="smoky3" type="checkbox">
+                    <label for="smoky3">Red Pepper Flakes</label><br>
+                    <input name="smoky3" type="checkbox">
+                    <label for="smoky3">Jalapeno Peppers</label><br>
+                    <input name="smoky3" type="checkbox">
+                    <label for="smoky3">Habanero Peppers</label><br>
+                    <input name="smoky4" type="checkbox">
+                    <label for="smoky3">Ghost Peppers</label><br>
+                    <input name="smoky4" type="checkbox">
+                    <label for="smoky3">Carolina Reaper Peppers</label><br>
+                    <input name="smoky4" type="checkbox">
+                    <label for="smoky3">Pure Capsaicin powder</label>
+                </form>
+            </div>
+
+            <div class="checkboxbox2" id="sugarcheckbox"><h2>Sugars</h2>
+                <form name="smokiness">
+                    <input name="smoky1" type="checkbox">
+                    <label for="smoky1">Granulated Sugar</label><br>
+                    <input name="smoky2" type="checkbox">
+                    <label for="smoky1">Brown Sugar</label><br>
+                    <input name="smoky2" type="checkbox">
+                    <label for="smoky1">Molasses</label><br>
+                    <input name="smoky2" type="checkbox">
+                    <label for="smoky2">Dark Corn Syrup</label><br>
+                    <input name="smoky3" type="checkbox">
+                    <label for="smoky3">Honey</label><br>
+                    <input name="smoky4" type="checkbox">
+                    <label for="smoky1">Maple Syrup</label>
+                    <br>
+                </form>
+
+                <br>
+                <div id="buttonDiv">
+                    <!-- <br> -->
+                    <button id="resetButton">Reset</button>
+                    <!-- <br> -->
+                    <button id="submitButton">Submit</button>
+                </div>
+            </div>
+        </div>
     </div>
 
-    <div class="whitepage">
-        <p>test ptag</p>
+<div class="whitepage">
+    <h2 id="ingredientslisttitle">Ingredients List</h2>
+    <p id="listptag">On this page, you are greeted with a list of your chosen ingredients. Take the slider (or manually type in) the poundage of starting meat you are working with. The system will automatically update the measurements of each ingredient you need to prepare.</p>
+    <div id="sliderdiv">
+        <input type="range" min="0.250" max="20" value="5" id="slider">
     </div>
-
-    <div class="whitepage">
-        <p>test ptag</p>
-    </div>
+</div>
 
 
     <script src="Index.js"></script>

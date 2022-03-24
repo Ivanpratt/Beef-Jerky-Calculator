@@ -179,7 +179,7 @@ form {
 
 #sliderdiv {
     background-color:rgb(248, 247, 247);
-    width: 700px;
+    width: 800px;
     height: 50px;
 
     display: flex;
@@ -208,4 +208,8 @@ form {
     height: 37px;
     border-radius: 10px;
     font-size: 30px;
+}
+
+#meatlbs {
+    font-size: 38px;
 }

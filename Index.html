@@ -114,21 +114,21 @@
         <div id="objectives">
             <div class="checkboxbox2"><h2>Meat</h2>
                 <form name="smokiness">
-                    <input name="smoky1" type="checkbox">
+                    <input name="smoky1" type="radio">
                     <label for="smoky1">Beef</label><br>
-                    <input name="smoky2" type="checkbox">
+                    <input name="smoky2" type="radio">
                     <label for="smoky2">Deer or other Cervid</label><br>
-                    <input name="smoky3" type="checkbox">
+                    <input name="smoky3" type="radio">
                     <label for="smoky3">Fish</label><br>
-                    <input name="smoky4" type="checkbox">
+                    <input name="smoky4" type="radio">
                     <label for="smoky4">Turkey</label><br>
-                    <input name="smoky5" type="checkbox">
+                    <input name="smoky5" type="radio">
                     <label for="smoky5">Pork</label><br>
-                    <input name="smoky6" type="checkbox">
+                    <input name="smoky6" type="radio">
                     <label for="smoky5">Bacon</label><br>
-                    <input name="smoky6" type="checkbox">
+                    <input name="smoky6" type="radio">
                     <label for="smoky6">Ham</label><br>
-                    <input name="smoky1" type="checkbox">
+                    <input name="smoky1" type="radio">
                     <label for="smoky1">Ground meats</label><br>
                     <br>
                     <br>
@@ -178,7 +178,8 @@
                     <label for="smoky1">MSG</label><br>
                     <input name="smoky1" type="checkbox">
                     <label for="smoky1">Meat Tenderizer</label><br>
-                    <br>
+                    <input name="smoky1" type="checkbox">
+                    <label for="smoky1">Powdered Ginger</label><br>
                     <br>
 
                 </form>
@@ -239,7 +240,10 @@
     <h2 id="ingredientslisttitle">Ingredients List</h2>
     <p id="listptag">On this page, you are greeted with a list of your chosen ingredients. Take the slider (or manually type in) the poundage of starting meat you are working with. The system will automatically update the measurements of each ingredient you need to prepare.</p>
     <div id="sliderdiv">
-        <input type="range" min="0.250" max="20" value="5" id="slider">
+        <input type="range" min="0.250" max="15" value="5" step="0.250" id="slider">
+        <input id="meatmanualinput" value="5" type="text">
+        <p id="meatlbs">(lbs)</p>
+        <input id="submitButton2" type="submit">
     </div>
 </div>
 

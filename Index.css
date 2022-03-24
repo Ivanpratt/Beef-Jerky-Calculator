@@ -154,6 +154,15 @@ form {
     color: white;
 }
 
+#submitButton2 {
+    font-size: 30px;
+    height: 45px;
+    width: 160px;
+    border-radius: 10px;
+    background-color: rgb(28, 68, 34);
+    color: white;
+}
+
 #ingredientslisttitle {
     text-align: center;
     font-size: 35px;
@@ -170,7 +179,7 @@ form {
 
 #sliderdiv {
     background-color:rgb(248, 247, 247);
-    width: 500px;
+    width: 700px;
     height: 50px;
 
     display: flex;
@@ -184,7 +193,7 @@ form {
 #slider {
     -webkit-appearance: none;  /* Override default CSS styles */
     appearance: none;
-    width: 300px; /* Full-width */
+    width: 350px; /* Full-width */
     height: 7px; /* Specified height */
     border-radius: 20px;
     background: #5f5f5f; /* Grey background */
@@ -194,3 +203,9 @@ form {
     transition: opacity .3s;
 }
 
+#meatmanualinput {
+    width: 90px;
+    height: 37px;
+    border-radius: 10px;
+    font-size: 30px;
+}

@@ -213,3 +213,31 @@ form {
 #meatlbs {
     font-size: 38px;
 }
+
+#listdiv {
+    background-color: aqua;
+    font-size: 27px;
+
+    display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	justify-content:space-around;
+	align-items: stretch;
+	align-content: stretch;
+}
+
+#listcolumndiv {
+    background-color: red;
+
+    display: flex;
+	flex-direction: column;
+	flex-wrap: nowrap;
+	justify-content: flex-start;
+	align-items: flex-start;
+	align-content: space-around;
+}
+
+#preparationdiv {
+    background-color: blueviolet;
+
+}

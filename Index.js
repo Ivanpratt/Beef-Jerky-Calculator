@@ -1,6 +1,6 @@
 console.log("Working")
 
-const jerkyObject = {
+let jerkyObject = {
     Smokiness: "",
     Spiciness: "",
     Sweetness: "",
@@ -9,13 +9,14 @@ const jerkyObject = {
     Shelflife: "",
     Appliance: "",
     Meat: "",
-    Baseingredients: "",
-    Postingredients: "",
-    Spice: "",
-    Sugars: ""
+    Baseingredients: [],
+    Postingredients: [],
+    Spice: [],
+    Sugar: []
 }
 
 let submitbutton1 = document.getElementById("submitButton")
+let resetbutton = document.getElementById("resetButton")
 const slider = document.getElementById("slider")
 
 
@@ -73,6 +74,47 @@ baseingredientsform.addEventListener('change', () => {
     let myarray = Array.from(document.querySelectorAll("input[type=checkbox][name=baseingredients]:checked"), e => e.value);
     jerkyObject.Baseingredients = myarray
     console.log(jerkyObject)
+})
+
+postingredientsform.addEventListener('change', () => {
+    let myarray = Array.from(document.querySelectorAll("input[type=checkbox][name=postingredients]:checked"), e => e.value);
+    jerkyObject.Postingredients = myarray
+    console.log(jerkyObject)
+})
+
+spiceform.addEventListener('change', () => {
+    let myarray = Array.from(document.querySelectorAll("input[type=checkbox][name=spice]:checked"), e => e.value);
+    jerkyObject.Spice = myarray
+    console.log(jerkyObject)
+})
+
+sugarform.addEventListener('change', () => {
+    let myarray = Array.from(document.querySelectorAll("input[type=checkbox][name=sugar]:checked"), e => e.value);
+    jerkyObject.Sugar = myarray
+    console.log(jerkyObject)
+})
+
+//resetbutton. Unchecks all checked inputs, then re-defines JerkyObject to empty again.
+resetbutton.addEventListener('click', () => {
+    let allcheckboxes = Array.from(document.querySelectorAll("input[type=checkbox]:checked, input[type=radio]:checked"))
+    console.log(allcheckboxes)
+    for (i = 0; i < allcheckboxes.length; i++){
+        allcheckboxes[i].checked = false;
+    }
+    jerkyObject = {
+        Smokiness: "",
+        Spiciness: "",
+        Sweetness: "",
+        Saltiness: "",
+        Toughness: "",
+        Shelflife: "",
+        Appliance: "",
+        Meat: "",
+        Baseingredients: [],
+        Postingredients: [],
+        Spice: [],
+        Sugar: []
+    }
 })
 
 

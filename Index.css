@@ -228,7 +228,8 @@ form {
 
 #listcolumndivbase {
     background-color: red;
-
+    
+    
     display: flex;
 	flex-direction: column;
 	flex-wrap: nowrap;
@@ -251,4 +252,11 @@ form {
 #preparationdiv {
     background-color: blueviolet;
 
+}
+
+.listItem {
+    font-family: 'Frank Ruhl Libre', serif;;
+    width: 100%;
+    text-align: justify;
+    margin: 1px;
 }

@@ -1,5 +1,8 @@
 console.log("Working")
 
+let bowlvariable = 0
+let previousMultiplier = 1
+
 let jerkyObject = {
     Smokiness: "",
     Spiciness: "",
@@ -12,101 +15,215 @@ let jerkyObject = {
     Baseingredients: [],
     Postingredients: [],
     Spice: [],
-    Sugar: []
+    Sugar: [],
+    Items: []
 }
 
 let submitbutton1 = document.getElementById("submitButton")
+let submitbutton2 = document.getElementById("submitButton2")
 let resetbutton = document.getElementById("resetButton")
 const slider = document.getElementById("slider")
 let meatmanualinput = document.getElementById("meatmanualinput")
-
+let preparationdiv = document.getElementById("preparationdiv")
 let listcolumndivbase = document.getElementById("listcolumndivbase")
+
+let updateList = function(){
+
+    for (const array of jerkyObject.Meat){
+        let originalValue = array[1]
+        array[1] = (originalValue / previousMultiplier) * meatmanualinput.value
+
+    }
+
+    for (const array of jerkyObject.Baseingredients){
+        let originalValue = array[1]
+        array[1] = (originalValue / previousMultiplier) * meatmanualinput.value
+    }
+
+    for (const array of jerkyObject.Postingredients){
+        let originalValue = array[1]
+        array[1] = (originalValue / previousMultiplier) * meatmanualinput.value
+
+    }
+
+    for (const array of jerkyObject.Spice){
+        let originalValue = array[1]
+        array[1] = (originalValue / previousMultiplier) * meatmanualinput.value
+        
+
+    }
+
+    for (const array of jerkyObject.Sugar){
+        let originalValue = array[1]
+        array[1] = (originalValue / previousMultiplier) * meatmanualinput.value
+
+    }
+
+    console.log(jerkyObject)
+    submitbutton1Function()
+    previousMultiplier = meatmanualinput.value
+}
+
+const submitbutton1Function = function(){
+    listcolumndivbase.innerHTML = '';
+    preparationdiv.innerHTML = '';
+
+    for (const item of jerkyObject.Meat){
+        let itemptag = document.createElement("p");
+        itemptag.classList.add("listItem")
+        itemptag.innerHTML = (`${item[0]}: ${item[1].toFixed(2)} ${item[2]}`)
+        listcolumndivbase.appendChild(itemptag)
+    }
+
+    
+    for (const item of jerkyObject.Baseingredients){
+        let itemptag = document.createElement("p");
+        itemptag.classList.add("listItem")
+        itemptag.innerHTML = (`${item[0]}: ${item[1].toFixed(2)} ${item[2]}`)
+        listcolumndivbase.appendChild(itemptag)
+    }
+
+    for (const item of jerkyObject.Postingredients){
+        let itemptag = document.createElement("p");
+        itemptag.classList.add("listItem")
+        itemptag.innerHTML = (`${item[0]}: ${item[1].toFixed(2)} ${item[2]}`)
+        listcolumndivbase.appendChild(itemptag)
+    }
+
+    for (const item of jerkyObject.Spice){
+        let itemptag = document.createElement("p");
+        itemptag.classList.add("listItem")
+        itemptag.innerHTML = (`${item[0]}: ${item[1].toFixed(3)} ${item[2]}`)
+        listcolumndivbase.appendChild(itemptag)
+    }
+
+    for (const item of jerkyObject.Sugar){
+        let itemptag = document.createElement("p");
+        itemptag.classList.add("listItem")
+        itemptag.innerHTML = (`${item[0]}: ${item[1].toFixed(2)} ${item[2]}`)
+        listcolumndivbase.appendChild(itemptag)
+    }
+
+    for (const item of jerkyObject.Items){
+        let itemptag = document.createElement("p");
+        itemptag.classList.add("listItem")
+        itemptag.innerHTML = (`${item[0]}: ${item[1].toFixed()} ${item[2]}`)
+        preparationdiv.appendChild(itemptag)
+    }
+
+}
+
+const updateAllForms = function() {
+    let smokiness = document.forms.smokiness.elements.smokiness.value
+    jerkyObject.Smokiness = smokiness
+
+    let spiciness = document.forms.spiciness.elements.spiciness.value
+    jerkyObject.Spiciness = spiciness
+
+    let sweetness = document.forms.sweetness.elements.sweetness.value
+    jerkyObject.Sweetness = sweetness
+
+    let saltiness = document.forms.saltiness.elements.saltiness.value
+    jerkyObject.Saltiness = saltiness
+
+    let toughness = document.forms.toughness.elements.toughness.value
+    jerkyObject.Toughness = toughness
+
+    let shelflife = document.forms.shelflife.elements.shelflife.value
+    jerkyObject.Shelflife = shelflife
+
+    let appliance = document.forms.appliance.elements.appliance.value
+    jerkyObject.Appliance = appliance
+
+    let mymeatarray = Array.from(document.querySelectorAll("input[type=radio][name=meat]:checked"), e => e.value.split(','));
+    for (const item of mymeatarray){
+        item[1] = parseFloat(item[1])
+    }
+    jerkyObject.Meat = mymeatarray
+
+    let mybasearray = Array.from(document.querySelectorAll("input[type=checkbox][name=baseingredients]:checked"), e => e.value.split(','));
+    for (const item of mybasearray){
+        item[1] = parseFloat(item[1])
+    }
+    jerkyObject.Baseingredients = mybasearray
+
+    if (bowlvariable === 0){
+        bowlvariable = 1
+        jerkyObject.Items.push(["Bowl", 1, "Small"])
+    }
+
+    let mypostarray = Array.from(document.querySelectorAll("input[type=checkbox][name=postingredients]:checked"), e => e.value.split(','));
+    for (const item of mypostarray){
+        item[1] = parseFloat(item[1])
+    }
+    jerkyObject.Postingredients = mypostarray
+
+    let myspicearray = Array.from(document.querySelectorAll("input[type=checkbox][name=spice]:checked"), e => e.value.split(','));
+    for (const item of myspicearray){
+        item[1] = parseFloat(item[1])
+    }
+    jerkyObject.Spice = myspicearray
+
+    let mysugararray = Array.from(document.querySelectorAll("input[type=checkbox][name=sugar]:checked"), e => e.value.split(','));
+    for (const item of mysugararray){
+        item[1] = parseFloat(item[1])
+    }
+    jerkyObject.Sugar = mysugararray
+
+
+    console.log(jerkyObject)
+    previousMultiplier = 1
+}
 
 
 //event listeners to change the Jerky Object
 smokinessform.addEventListener('change', () => {
-    let smokiness = document.forms.smokiness.elements.smokiness.value
-    jerkyObject.Smokiness = smokiness
-    console.log(jerkyObject)
+    updateAllForms()
+    
 })
 
 spicinessform.addEventListener('change', () => {
-    let spiciness = document.forms.spiciness.elements.spiciness.value
-    jerkyObject.Spiciness = spiciness
-    console.log(jerkyObject)
+    updateAllForms()
 })
 
 sweetnessform.addEventListener('change', () => {
-    let sweetness = document.forms.sweetness.elements.sweetness.value
-    jerkyObject.Sweetness = sweetness
-    console.log(jerkyObject)
+    updateAllForms()
 })
 
 saltinessform.addEventListener('change', () => {
-    let saltiness = document.forms.saltiness.elements.saltiness.value
-    jerkyObject.Saltiness = saltiness
-    console.log(jerkyObject)
+    updateAllForms()
 })
 
 toughnessform.addEventListener('change', () => {
-    let toughness = document.forms.toughness.elements.toughness.value
-    jerkyObject.Toughness = toughness
-    console.log(jerkyObject)
+    updateAllForms()
 })
 
 shelflifeform.addEventListener('change', () => {
-    let shelflife = document.forms.shelflife.elements.shelflife.value
-    jerkyObject.Shelflife = shelflife
-    console.log(jerkyObject)
+    updateAllForms()
 })
 
 applianceform.addEventListener('change', () => {
-    let appliance = document.forms.appliance.elements.appliance.value
-    jerkyObject.Appliance = appliance
-    console.log(jerkyObject)
+    updateAllForms()
 })
 
 meatform.addEventListener('change', () => {
-    let meat = document.forms.meat.elements.meat.value.split(',')
-    meat[1] = parseFloat(meat[1])
-    jerkyObject.Meat = [meat]
-    console.log(jerkyObject)
+    updateAllForms()
 })
 
 baseingredientsform.addEventListener('change', () => {
-    let myarray = Array.from(document.querySelectorAll("input[type=checkbox][name=baseingredients]:checked"), e => e.value.split(','));
-    for (const item of myarray){
-        item[1] = parseFloat(item[1])
-    }
-    jerkyObject.Baseingredients = myarray
-    console.log(jerkyObject)
+    updateAllForms()
 })
 
 postingredientsform.addEventListener('change', () => {
-    let myarray = Array.from(document.querySelectorAll("input[type=checkbox][name=postingredients]:checked"), e => e.value.split(','));
-    for (const item of myarray){
-        item[1] = parseFloat(item[1])
-    }
-    jerkyObject.Postingredients = myarray
-    console.log(jerkyObject)
+    updateAllForms()
 })
 
 spiceform.addEventListener('change', () => {
-    let myarray = Array.from(document.querySelectorAll("input[type=checkbox][name=spice]:checked"), e => e.value.split(','));
-    for (const item of myarray){
-        item[1] = parseFloat(item[1])
-    }
-    jerkyObject.Spice = myarray
-    console.log(jerkyObject)
+    updateAllForms()
 })
 
 sugarform.addEventListener('change', () => {
-    let myarray = Array.from(document.querySelectorAll("input[type=checkbox][name=sugar]:checked"), e => e.value.split(','));
-    for (const item of myarray){
-        item[1] = parseFloat(item[1])
-    }
-    jerkyObject.Sugar = myarray
-    console.log(jerkyObject)
+    updateAllForms()
 })
 
 //resetbutton. Unchecks all checked inputs, then re-defines JerkyObject to empty again.
@@ -124,55 +241,24 @@ resetbutton.addEventListener('click', () => {
         Toughness: "",
         Shelflife: "",
         Appliance: "",
-        Meat: "",
+        Meat: [],
         Baseingredients: [],
         Postingredients: [],
         Spice: [],
-        Sugar: []
+        Sugar: [],
+        Items:[]
     }
+    bowlvariable = 0
 })
+
+
 
 submitbutton1.addEventListener('click', () => {
-    listcolumndivbase.innerHTML = '';
-
-    for (const item of jerkyObject.Meat){
-        let itemptag = document.createElement("p");
-        itemptag.innerHTML = (`${item[0]}: ${item[1]} ${item[2]}`)
-        listcolumndivbase.appendChild(itemptag)
-    }
-
-    
-    for (const item of jerkyObject.Baseingredients){
-        let itemptag = document.createElement("p");
-        itemptag.innerHTML = (`${item[0]}: ${item[1]} ${item[2]}`)
-        listcolumndivbase.appendChild(itemptag)
-    }
-
-    for (const item of jerkyObject.Postingredients){
-        let itemptag = document.createElement("p");
-        itemptag.innerHTML = (`${item[0]}: ${item[1]} ${item[2]}`)
-        listcolumndivbase.appendChild(itemptag)
-    }
-
-    for (const item of jerkyObject.Spice){
-        let itemptag = document.createElement("p");
-        itemptag.innerHTML = (`${item[0]}: ${item[1]} ${item[2]}`)
-        listcolumndivbase.appendChild(itemptag)
-    }
-
-    for (const item of jerkyObject.Sugar){
-        let itemptag = document.createElement("p");
-        itemptag.innerHTML = (`${item[0]}: ${item[1]} ${item[2]}`)
-        listcolumndivbase.appendChild(itemptag)
-    }
-
-
-    
-    
-    
-
-
+    submitbutton1Function()
 })
+
+
+
 
 
 
@@ -180,6 +266,15 @@ submitbutton1.addEventListener('click', () => {
 //slider event listener to change the meat manual input
 slider.addEventListener('input', () => {
     meatmanualinput.value = slider.value
+    updateList()
+})
+
+meatmanualinput.addEventListener('change', ()=> {
+    updateList()
+})
+
+submitbutton2.addEventListener('click', () => {
+    updateList()
 })
 
 

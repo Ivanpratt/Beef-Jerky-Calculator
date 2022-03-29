@@ -2,7 +2,15 @@ console.log("Working")
 
 let bowlvariable = 0
 let knifevariable = 0
+let jerkyGun = 0
 let previousMultiplier = 1
+
+let smokinessMultiplier = 0
+let spicinessMultiplier = 0
+let saltinessMultiplier = 0
+let sweetnessMultiplier = 0
+let toughnessMultiplier = 0
+let shelflifeMultiplier = 0
 
 let jerkyObject = {
     Smokiness: "",
@@ -17,7 +25,7 @@ let jerkyObject = {
     Postingredients: [],
     Spice: [],
     Sugar: [],
-    Items: []
+    Items: [["Bowl", 1, "Small"], ["Plastic Wrap", 1, "Feet"], ["Knife", 1, "Medium"], ["Cutting Board", 1, "Small"], ["Jerky Gun", 1, "Medium"], ["Preparation Time", 1, "Hours"]]
 }
 
 let submitbutton1 = document.getElementById("submitButton")
@@ -47,10 +55,11 @@ let updateList = function(){
 
     }
 
+    
     for (const array of jerkyObject.Spice){
-        let originalValue = array[1]
+        let originalValue = array[1] * spicinessMultiplier
         array[1] = (originalValue / previousMultiplier) * meatmanualinput.value
-        
+        spicinessMultiplier = 1
 
     }
 
@@ -60,20 +69,26 @@ let updateList = function(){
 
     }
 
+    //jerkyObject.Items[5][1] = makeTime + cookTime + marinateTime 
+
     if (bowlvariable === 1) {
     if (meatmanualinput.value <= 2){
         jerkyObject.Items[0][2] = "Small"
+        jerkyObject.Items[1][1] = 1
     } else if (meatmanualinput.value <= 5){
         jerkyObject.Items[0][2] = "Medium"
+        jerkyObject.Items[1][1] = 3
     } else if (meatmanualinput.value <= 10){
         jerkyObject.Items[0][2] = "Large"
+        jerkyObject.Items[1][1] = 6
     } else {
         jerkyObject.Items[0][2] = "Extremely Large"
+        jerkyObject.Items[1][1] = 10
     }
     }
 
 
-
+    if(jerkyObject.Appliance.length !== 0){
     if (meatmanualinput.value <= 8){
         jerkyObject.Appliance[0][2] = "Medium"
     } else if (meatmanualinput.value <= 15){
@@ -81,7 +96,25 @@ let updateList = function(){
     } else{
         jerkyObject.Appliance[0][2] = "Extremely Large"
     }
+    }
     
+    if (knifevariable === 1) {
+        if (meatmanualinput.value <= 2){
+            jerkyObject.Items[2][2] = "Small"
+            jerkyObject.Items[3][2] = "Small"
+        } else if (meatmanualinput.value <= 5){
+            jerkyObject.Items[2][2] = "Medium"
+            jerkyObject.Items[3][2] = "Medium"
+        } else if (meatmanualinput.value <= 10){
+            jerkyObject.Items[2][2] = "Large"
+            jerkyObject.Items[3][2] = "Large"
+        } else {
+            jerkyObject.Items[2][2] = "Extremely Large"
+            jerkyObject.Items[3][2] = "Extremely Large"
+        }
+        }
+
+       
 
 
     console.log(jerkyObject)
@@ -129,11 +162,41 @@ const submitbutton1Function = function(){
         listcolumndivbase.appendChild(itemptag)
     }
 
-    for (const item of jerkyObject.Items){
+    for (let i = 0; i < 1; i++){
+        if (bowlvariable === 1){
+            let itemptag = document.createElement("p");
+        itemptag.classList.add("listItem")
+        itemptag.innerHTML = (`${jerkyObject.Items[0][1].toFixed()} ${jerkyObject.Items[0][2]} ${jerkyObject.Items[0][0]}`)
+        preparationdiv.appendChild(itemptag)
+
+        itemptag = document.createElement("p");
+        itemptag.classList.add("listItem")
+        itemptag.innerHTML = (`${jerkyObject.Items[1][1].toFixed()} ${jerkyObject.Items[1][2]} ${jerkyObject.Items[1][0]}`)
+        preparationdiv.appendChild(itemptag)
+        }
+        if (knifevariable === 1){
+            let itemptag = document.createElement("p");
+            itemptag.classList.add("listItem")
+            itemptag.innerHTML = (`${jerkyObject.Items[2][1].toFixed()} ${jerkyObject.Items[2][2]} ${jerkyObject.Items[2][0]}`)
+            preparationdiv.appendChild(itemptag)
+
+            itemptag = document.createElement("p");
+            itemptag.classList.add("listItem")
+            itemptag.innerHTML = (`${jerkyObject.Items[3][1].toFixed()} ${jerkyObject.Items[3][2]} ${jerkyObject.Items[3][0]}`)
+            preparationdiv.appendChild(itemptag)
+        }
+        if (jerkyGun === 1){
+            let itemptag = document.createElement("p");
+        itemptag.classList.add("listItem")
+        itemptag.innerHTML = (`${jerkyObject.Items[4][1].toFixed()} ${jerkyObject.Items[4][2]} ${jerkyObject.Items[4][0]}`)
+        preparationdiv.appendChild(itemptag)
+        }
+
         let itemptag = document.createElement("p");
         itemptag.classList.add("listItem")
-        itemptag.innerHTML = (`${item[1].toFixed()} ${item[2]} ${item[0]}`)
+        itemptag.innerHTML = (`${jerkyObject.Items[5][1].toFixed()} ${jerkyObject.Items[5][2]} ${jerkyObject.Items[5][0]}`)
         preparationdiv.appendChild(itemptag)
+
     }
 
     for (const item of jerkyObject.Appliance){
@@ -200,8 +263,78 @@ const updateAllForms = function() {
     }
     jerkyObject.Sugar = mysugararray
 
+    if (document.querySelectorAll("input[type=radio][value='Ground meats,1,lbs']:checked").length > 0){
+        jerkyGun = 1
+    } else {
+        jerkyGun = 0
+    }
+
+    if (document.querySelectorAll("input[type=checkbox][value='Ghost Peppers,0.076,Medium Peppers']:checked").length > 0 || document.querySelectorAll("input[type=checkbox][value='Carolina Reaper Peppers,0.046,Medium Peppers']:checked").length > 0 || document.querySelectorAll("input[type=checkbox][value='Habanero Peppers,0.23,Medium Peppers']:checked").length > 0 || document.querySelectorAll("input[type=checkbox][value='Jalapeno Peppers,0.7,Medium Peppers']:checked").length > 0 || ((document.querySelectorAll("input[type=radio][name=meat]:checked").length > 0) && (document.querySelectorAll("input[type=radio][value='Ground meats,1,lbs']:checked").length === 0))){
+        knifevariable = 1
+    } else {
+        knifevariable = 0
+    }
+
+    if(jerkyObject.Smokiness === "Genuine"){
+        smokinessMultiplier = 5
+    } else if (jerkyObject.Smokiness === "Heavy"){
+        smokinessMultiplier = 3
+    } else if (jerkyObject.Smokiness === "Light"){
+        smokinessMultiplier = 1
+    } else if (jerkyObject.Smokiness === "None"){
+        smokinessMultiplier = 0
+    }
+
+    if(jerkyObject.Spiciness === "Hellfire"){
+        spicinessMultiplier = 3
+    } else if (jerkyObject.Spiciness === "Scorching"){
+        spicinessMultiplier = 1
+    } else if (jerkyObject.Spiciness === "White"){
+        spicinessMultiplier = 0.5
+    } else if (jerkyObject.Spiciness === "None"){
+        spicinessMultiplier = 0
+    }
+
+
+    if(jerkyObject.Saltiness === "Cured"){
+        saltinessMultiplier = 3
+    } else if (jerkyObject.Saltiness === "Moderate"){
+        saltinessMultiplier = 2
+    } else if (jerkyObject.Saltiness === "Light"){
+        saltinessMultiplier = 1
+    } else if (jerkyObject.Saltiness === "None"){
+        saltinessMultiplier = 0
+    }
+
+    if(jerkyObject.Sweetness === "Sweet"){
+        sweetnessMultiplier = 2
+    } else if (jerkyObject.Sweetness === "Mild"){
+        sweetnessMultiplier = 1
+    } else if (jerkyObject.Sweetness === "None"){
+        sweetnessMultiplier = 0
+    }
+
+    if(jerkyObject.Toughness === "Tough"){
+        toughnessMultiplier = 2
+    } else if (jerkyObject.Toughness === "Standard"){
+        toughnessMultiplier = 1
+    } else if (jerkyObject.Toughness === "Tender"){
+        toughnessMultiplier = 0
+    }
+
+    if(jerkyObject.Shelflife === "Years++"){
+        shelflifeMultiplier = 3
+    } else if (jerkyObject.Shelflife === "~Month"){
+        shelflifeMultiplier = 2
+    } else if (jerkyObject.Shelflife === "2 Weeks"){
+        shelflifeMultiplier = 1
+    } else if (jerkyObject.Shelflife === "Don't Care"){
+        shelflifeMultiplier = 0
+    }
+    
 
     console.log(jerkyObject)
+   // console.log(makeTime)
     previousMultiplier = 1
 }
 
@@ -237,13 +370,16 @@ applianceform.addEventListener('change', () => {
 })
 
 meatform.addEventListener('change', () => {
+
     updateAllForms()
 })
 
 baseingredientsform.addEventListener('change', () => {
-    if (bowlvariable === 0){
+
+    if (document.querySelectorAll("input[type=checkbox][name=baseingredients]:checked").length > 0){
         bowlvariable = 1
-        jerkyObject.Items.push(["Bowl", 1, "Small"])
+    } else {
+        bowlvariable = 0
     }
     updateAllForms()
 })
@@ -280,7 +416,7 @@ resetbutton.addEventListener('click', () => {
         Postingredients: [],
         Spice: [],
         Sugar: [],
-        Items:[]
+        Items: [["Bowl", 1, "Small"], ["Plastic Wrap", 1, "Feet"], ["Knife", 1, "Medium"], ["Cutting Board", 1, "Small"], ["Jerky Gun", 1, "Medium"], ["Preparation Time", 1, "Hours"]]
     }
     bowlvariable = 0
 })

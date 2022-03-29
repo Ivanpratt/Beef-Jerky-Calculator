@@ -1,6 +1,7 @@
 console.log("Working")
 
 let bowlvariable = 0
+let knifevariable = 0
 let previousMultiplier = 1
 
 let jerkyObject = {
@@ -59,6 +60,30 @@ let updateList = function(){
 
     }
 
+    if (bowlvariable === 1) {
+    if (meatmanualinput.value <= 2){
+        jerkyObject.Items[0][2] = "Small"
+    } else if (meatmanualinput.value <= 5){
+        jerkyObject.Items[0][2] = "Medium"
+    } else if (meatmanualinput.value <= 10){
+        jerkyObject.Items[0][2] = "Large"
+    } else {
+        jerkyObject.Items[0][2] = "Extremely Large"
+    }
+    }
+
+
+
+    if (meatmanualinput.value <= 8){
+        jerkyObject.Appliance[0][2] = "Medium"
+    } else if (meatmanualinput.value <= 15){
+        jerkyObject.Appliance[0][2] = "Large"
+    } else{
+        jerkyObject.Appliance[0][2] = "Extremely Large"
+    }
+    
+
+
     console.log(jerkyObject)
     submitbutton1Function()
     previousMultiplier = meatmanualinput.value
@@ -107,7 +132,14 @@ const submitbutton1Function = function(){
     for (const item of jerkyObject.Items){
         let itemptag = document.createElement("p");
         itemptag.classList.add("listItem")
-        itemptag.innerHTML = (`${item[0]}: ${item[1].toFixed()} ${item[2]}`)
+        itemptag.innerHTML = (`${item[1].toFixed()} ${item[2]} ${item[0]}`)
+        preparationdiv.appendChild(itemptag)
+    }
+
+    for (const item of jerkyObject.Appliance){
+        let itemptag = document.createElement("p");
+        itemptag.classList.add("listItem")
+        itemptag.innerHTML = (`${item[1].toFixed()} ${item[2]} ${item[0]}(s)`)
         preparationdiv.appendChild(itemptag)
     }
 
@@ -132,8 +164,11 @@ const updateAllForms = function() {
     let shelflife = document.forms.shelflife.elements.shelflife.value
     jerkyObject.Shelflife = shelflife
 
-    let appliance = document.forms.appliance.elements.appliance.value
-    jerkyObject.Appliance = appliance
+    let myappliancearray = Array.from(document.querySelectorAll("input[type=radio][name=appliance]:checked"), e => e.value.split(','));
+    for (const item of myappliancearray){
+        item[1] = parseFloat(item[1])
+    }
+    jerkyObject.Appliance = myappliancearray
 
     let mymeatarray = Array.from(document.querySelectorAll("input[type=radio][name=meat]:checked"), e => e.value.split(','));
     for (const item of mymeatarray){
@@ -146,11 +181,6 @@ const updateAllForms = function() {
         item[1] = parseFloat(item[1])
     }
     jerkyObject.Baseingredients = mybasearray
-
-    if (bowlvariable === 0){
-        bowlvariable = 1
-        jerkyObject.Items.push(["Bowl", 1, "Small"])
-    }
 
     let mypostarray = Array.from(document.querySelectorAll("input[type=checkbox][name=postingredients]:checked"), e => e.value.split(','));
     for (const item of mypostarray){
@@ -211,6 +241,10 @@ meatform.addEventListener('change', () => {
 })
 
 baseingredientsform.addEventListener('change', () => {
+    if (bowlvariable === 0){
+        bowlvariable = 1
+        jerkyObject.Items.push(["Bowl", 1, "Small"])
+    }
     updateAllForms()
 })
 

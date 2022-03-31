@@ -25,7 +25,10 @@ html {
 
 #welcome {
     font-family: 'Frank Ruhl Libre', serif;;
-    margin-top: 0.5%;
+    padding-top: 0.5%;
+    padding-left: 0.5%;
+    padding-right: 0.5%;
+    margin-top: 0.7%;
     margin-left: 0.5%;
     margin-bottom: 0;
     font-size: 22px;
@@ -36,6 +39,9 @@ html {
     width:92%;
     margin-left: 4%;
     margin-bottom: 4%;
+    border-radius: 10px;
+    overflow: hidden;
+    
 
 }
 
@@ -71,6 +77,7 @@ h2 {
     margin-bottom: 0%;
     padding: 1%;
     padding-top: 0.5%;
+    border-radius: 10px;
 
 	display: flex;
 	flex-direction: column;
@@ -90,6 +97,8 @@ h2 {
     margin-top: 0%;
     padding: 1%;
     padding-top: 0.5%;
+    border-radius: 10px;
+   
 
 	display: flex;
 	flex-direction: column;
@@ -115,14 +124,17 @@ form {
 }
 
 #objectives {
+    
     display: flex;
     justify-content: center;
+    
 }
 
 #buttonDiv {
-    margin:-16px;
+    margin:-18px;
     background-color: rgb(255, 255, 255);
     height: 110px;
+    
 
     display: flex;
 	flex-direction: column;
@@ -134,6 +146,7 @@ form {
 }
 
 #resetButton {
+    border: none;
     font-size: 30px;
     height: 45px;
     width: 90%;
@@ -144,6 +157,7 @@ form {
 }
 
 #submitButton {
+    border: none;
     margin-bottom: -9px;
     font-size: 30px;
     height: 45px;
@@ -155,6 +169,7 @@ form {
 }
 
 #submitButton2 {
+    border: none;
     font-size: 30px;
     height: 45px;
     width: 160px;
@@ -166,21 +181,28 @@ form {
 #ingredientslisttitle {
     text-align: center;
     font-size: 35px;
+    margin-top: 0.8%;
 }
 
 #listptag {
     font-family: 'Frank Ruhl Libre', serif;;
-    margin-top: 0.5%;
+    margin-top: 0.4%;
     margin-left: 0.5%;
     margin-bottom: 0;
     font-size: 25px;
+    padding-left: 0.5%;
+    padding-right: 0.5%;
 
 }
 
 #sliderdiv {
     background-color:rgb(248, 247, 247);
-    width: 100%;
+    width: auto;
     height: 50px;
+    margin: 1%;
+    margin-bottom: 1.5%;
+    border-radius: 8px;
+    padding: 0.2%;
 
     display: flex;
 	flex-direction: row;
@@ -215,7 +237,7 @@ form {
 }
 
 #listdiv {
-    background-color: aqua;
+    background-color: rgb(255, 255, 255);
     font-size: 27px;
 
     display: flex;
@@ -227,8 +249,11 @@ form {
 }
 
 #listcolumndivbase {
-    background-color: red;
-    
+    background-color: rgb(248, 247, 247);
+    border-radius: 10px;
+    margin-bottom: 1.2%;
+    padding: 1%;
+    padding-top: 0.6%;
     
     display: flex;
 	flex-direction: column;
@@ -239,7 +264,11 @@ form {
 }
 
 #listcolumndivpost {
-    background-color: red;
+    background-color: rgb(248, 247, 247);
+    border-radius: 10px;
+    padding: 1%;
+    padding-top: 0.6%;
+    margin-bottom: 1.2%;
 
     display: flex;
 	flex-direction: column;
@@ -250,7 +279,11 @@ form {
 }
 
 #preparationdiv {
-    background-color: blueviolet;
+    background-color: rgb(248, 247, 247);
+    border-radius: 10px;
+    padding: 1%;
+    padding-top: 0.6%;
+    margin-bottom: 1.2%;
 
 }
 
@@ -258,5 +291,9 @@ form {
     font-family: 'Frank Ruhl Libre', serif;;
     width: 100%;
     text-align: justify;
-    margin: 1px;
+    margin: 0;
+}
+
+#listcolumndivbase:empty, #listcolumndivpost:empty, #preparationdiv:empty {
+    display: none;
 }
